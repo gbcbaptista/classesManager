@@ -11,12 +11,14 @@ export const TextProvider = ({children}) => {
             toReceive: "To receive: ",
             received: "Received: ",
             moneySymbol: "U$",
+            todayClasses: "Today classes",
         },
         portuguese: {
             hey: "Olá, ",
             toReceive: "À receber: ",
             received: "Recebido: ",
             moneySymbol: "R$",
+            todayClasses: "Aulas de hoje",
         }
     }
 

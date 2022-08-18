@@ -12,6 +12,7 @@ import { useFonts,
             NotoSans_700Bold
       } from '@expo-google-fonts/noto-sans';
 import { UserProvider } from './src/contexts/UserContext';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
 
@@ -32,9 +33,11 @@ export default function App() {
           StatusBarStyle='light-content'
           backgroundColor="#fff"
         />
-        <View style={styles.container}>
-          <Home />
-        </View>
+        <NavigationContainer>
+          <View style={styles.container}>
+            <Home />
+          </View>
+        </NavigationContainer>
       </UserProvider>      
     </TextProvider>
   );

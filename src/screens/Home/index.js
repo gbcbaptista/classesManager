@@ -7,7 +7,7 @@ export const Home = () => {
     return(
         <View>
             <HeaderArea />
-            
+            <ClassesListArea />
         </View>
     );
 }
