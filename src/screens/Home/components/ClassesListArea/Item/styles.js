@@ -13,6 +13,15 @@ export const styles = StyleSheet.create({
       color: '#000',
       backgroundColor: '#fff',
       borderRadius: 10,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5,
+      shadowRadius: 2,
+      elevation: 2,
+    },
+    idNameContainer: {
+      flex: 1,
+      flexDirection: 'row',
     },
     contentId: {
       textAlign: 'center',
@@ -25,14 +34,28 @@ export const styles = StyleSheet.create({
       fontSize: 15,
     },
     contentName: {
+      overflow: "hidden",
+      maxWidth: 90,
+      maxHeight: 15,
       fontSize: 15,
     },
+    subjectContainer: {
+      flex: 1,
+      flexDirection: 'row',
+    },
     contentSubject: {
+      margin: 'auto',
       width: 50,
       marginHorizontal: 50,
+    },
+    timeContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
     },
     contentTime: {
       fontSize: 15,
     },
+    
 
 });

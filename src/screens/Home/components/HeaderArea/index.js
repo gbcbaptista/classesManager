@@ -27,13 +27,15 @@ export const HeaderArea = () => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <View style={styles.headerTop}>
-                    <RegularText style={styles.name}>{texts.hey}</RegularText>
-                    <BoldText style={styles.name}>{user.name}</BoldText>
-                    <View style={styles.blankSpace} />
-                    <TouchableOpacity onPress={() => setLanguage(!language)}>
-                        <Text style={styles.settingsIcon}>⚙️</Text>
-                    </TouchableOpacity>
-                    
+                    <View style={styles.namesContainer}>
+                        <RegularText style={styles.name}>{texts.hey}</RegularText>
+                        <BoldText style={styles.name}>{user.name}</BoldText>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity onPress={() => setLanguage(!language)}>
+                            <Text style={styles.settingsIcon}>⚙️</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={styles.valuesRow}>
                     <View style={styles.valuesView}>

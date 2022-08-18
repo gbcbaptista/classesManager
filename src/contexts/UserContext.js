@@ -6,7 +6,8 @@ export const UserContext = createContext({})
 export const UserProvider = ({children}) => {
 
     const user = {
-        name: 'Gabriel'
+        // name: 'Gabriel'
+        name: 'Raquel'
     }
 
     return(
