@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     container: {
       
       backgroundColor: '#63C2D1',
-      // backgroundColor: 'transparent',
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.5,
@@ -13,18 +12,20 @@ export const styles = StyleSheet.create({
       elevation: 2,
     },
     headerTop: {
+      marginLeft: 10,
+      height: 50,
       flexDirection: 'row',
       alignItems: 'center',
     },
     name: {
+      fontSize: 20,
       marginBottom: 5,
       flex: 1,
-      margin: 10,
+      marginVertical: 10,
       color: '#fff'
     },
     blankSpace: {
       flex: 2,
-      // fontSize: 25,
     },
     settingsIcon: {
       marginRight: 10,

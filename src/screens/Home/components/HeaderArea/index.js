@@ -27,7 +27,8 @@ export const HeaderArea = () => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <View style={styles.headerTop}>
-                    <BoldText style={styles.name}>{texts.hey}{user.name}</BoldText>
+                    <RegularText style={styles.name}>{texts.hey}</RegularText>
+                    <BoldText style={styles.name}>{user.name}</BoldText>
                     <View style={styles.blankSpace} />
                     <TouchableOpacity onPress={() => setLanguage(!language)}>
                         <Text style={styles.settingsIcon}>⚙️</Text>
