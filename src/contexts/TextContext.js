@@ -23,7 +23,7 @@ export const TextProvider = ({children}) => {
     }
 
     const [language, setLanguage] = useState(true);
-    const [texts, setTexts] = useState(labels.english)
+    const [texts, setTexts] = useState(labels.portuguese)
 
     useEffect(
         () => handleTextsLanguageChange(),
@@ -32,9 +32,9 @@ export const TextProvider = ({children}) => {
 
     const handleTextsLanguageChange = () => {
         if (language){
-            setTexts(labels.english);
-        } else if (!language) {
             setTexts(labels.portuguese);
+        } else if (!language) {
+            setTexts(labels.english);
         } 
     }
 
