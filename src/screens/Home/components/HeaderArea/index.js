@@ -26,27 +26,34 @@ export const HeaderArea = () => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
+
                 <View style={styles.headerTop}>
+
                     <View style={styles.namesContainer}>
                         <RegularText style={styles.name}>{texts.hey}</RegularText>
                         <BoldText style={styles.name}>{user.name}</BoldText>
                     </View>
+
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity onPress={() => setLanguage(!language)}>
                             <Text style={styles.settingsIcon}>⚙️</Text>
                         </TouchableOpacity>
                     </View>
+
                 </View>
-                <View style={styles.valuesRow}>
+
+                <View style={styles.headerBottom}>
+
                     <View style={styles.valuesView}>
-                        <RegularText style={[styles.valuesRow, styles.headerLabels]}>{texts.toReceive}</RegularText>
-                        <RegularText style={[styles.valuesRow, styles.headerLabels]}>{texts.moneySymbol}{values.toReceiveValue}</RegularText>
+                        <RegularText style={styles.headerLabels}>{texts.toReceive}</RegularText>
+                        <RegularText style={styles.headerLabels}>{texts.moneySymbol}{values.toReceiveValue}</RegularText>
                     </View>
                     
                     <View style={styles.valuesView}>
-                        <RegularText style={[styles.valuesRow, styles.headerLabels]}>{texts.received}</RegularText>
-                        <RegularText style={[styles.valuesRow, styles.headerLabels]}>{texts.moneySymbol}{values.toReceiveValue}</RegularText>
+                        <RegularText style={styles.headerLabels}>{texts.received}</RegularText>
+                        <RegularText style={styles.headerLabels}>{texts.moneySymbol}{values.toReceiveValue}</RegularText>
                     </View>
+
                 </View>
             </View>
         </View>

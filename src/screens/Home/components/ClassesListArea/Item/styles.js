@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
       backgroundColor: '#63C2D1',
       lineHeight: 20,
       height: 20,
-      width: 20,
+      width: 30,
       borderRadius: 10,
       marginRight: 10,
       fontSize: 15,
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     contentName: {
       overflow: "hidden",
       maxWidth: 90,
-      maxHeight: 15,
+      maxHeight: 20,
       fontSize: 15,
     },
     subjectContainer: {

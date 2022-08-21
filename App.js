@@ -1,44 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
-import { SafeAreaView, StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
 import { TextProvider } from './src/contexts/TextContext';
+import { UserProvider } from './src/contexts/UserContext';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from './src/screens/Home';
+
 import { useFonts,
         Montserrat_400Regular,
         Montserrat_700Bold,
       } from '@expo-google-fonts/montserrat';
-      import { 
-            NotoSans_400Regular,
-            NotoSans_700Bold
-      } from '@expo-google-fonts/noto-sans';
-import { UserProvider } from './src/contexts/UserContext';
-import { NavigationContainer } from '@react-navigation/native';
+import { Rotas } from './src/Rotas';
+import { StudentProvider } from './src/contexts/StudentContext';
 
 export default function App() {
 
-  const [ fontLoaded ] = useFonts({
-    'MontserratRegular': Montserrat_400Regular,
-    'MontserratBold': Montserrat_700Bold,
-    'emoji': NotoSans_400Regular,
-    'emoji2': NotoSans_700Bold,
-  })
+const [ fontLoaded ] = useFonts({
+  'MontserratRegular': Montserrat_400Regular,
+  'MontserratBold': Montserrat_700Bold
+})
+
   if (!fontLoaded) {
-    return <View><Text>missing fontFamily</Text></View>
+    return <View><Text>missing</Text></View>
   }
 
   return (
     <TextProvider>
       <UserProvider>
-        <StatusBar 
-          StatusBarStyle='light-content'
-          backgroundColor="#fff"
-        />
-        <NavigationContainer>
-          <View style={styles.container}>
-            <Home />
-          </View>
-        </NavigationContainer>
-      </UserProvider>      
+        <StudentProvider>
+          <StatusBar 
+            StatusBarStyle='light-content'
+            backgroundColor="#fff"
+          />
+          <SafeAreaView style={styles.container}>
+            <Rotas />
+          </SafeAreaView>
+        </StudentProvider>
+      </UserProvider>
     </TextProvider>
   );
 }
@@ -46,6 +45,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    paddingTop: Constants.statusBarHeight,
+    marginTop: Constants.statusBarHeight 
   },
 });
