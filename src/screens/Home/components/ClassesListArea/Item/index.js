@@ -1,13 +1,18 @@
-import React, { useCallback } from "react";
+import React, { useContext } from "react";
 import { TouchableOpacity, Text, View } from "react-native";
 import { BoldText } from "../../../../../components/BoldText";
 import { RegularText } from "../../../../../components/RegularText";
 import { styles } from "./styles";
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { TextContext } from "../../../../../contexts/TextContext";
 
 
 export const Item = ({ todayClass }) => {
+    
+  const {
+    texts,
+  } = useContext(TextContext);
+
   const navigation = useNavigation();
   return(
   <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Student', todayClass)}>
@@ -19,7 +24,7 @@ export const Item = ({ todayClass }) => {
       </View>
       
         <View style={styles.subjectContainer}>
-          <RegularText style={styles.contentSubject}>{todayClass.student.subject}</RegularText>
+          <RegularText style={styles.contentSubject}>{texts.subjects[todayClass.student.subject]}</RegularText>
         </View>
         <View style={styles.timeContainer}>
           <RegularText style={styles.contentTime}>{todayClass.student.time}</RegularText>

@@ -7,18 +7,39 @@ export const TextProvider = ({children}) => {
 
     const labels = {
         english: {
-            hey: "Hi, ",
-            toReceive: "To receive: ",
-            received: "Received: ",
+            hey: "Hi",
+            toReceive: "To receive",
+            received: "Received",
             moneySymbol: "U$",
             todayClasses: "Today classes",
+            subject: "Subject",
+            subjects: ['Piano', 'Organ', 'Musical Theory'],
+            paymentDay: "Payment Day",
+            day: "Day",
+            frequency: "Frequency",
+            frequencies: ['Weekly', 'Biweekly'],
+            time: 'Time',
+            newStudentTitle: "New Student",
+            name: "Name",
+            startDate: 'Start Date'
+
         },
         portuguese: {
-            hey: "Olá, ",
-            toReceive: "À receber: ",
-            received: "Recebido: ",
+            hey: "Olá",
+            toReceive: "À receber",
+            received: "Recebido",
             moneySymbol: "R$",
             todayClasses: "Aulas de hoje",
+            subject: "Matéria",
+            subjects: ['Piano', 'Orgão', 'Teoria Musical'],
+            paymentDay: "Dia de Pagamento",
+            day: "Dia",
+            frequency: "Frequência",
+            frequencies: ['Semanal', 'Quinzenal'],
+            time: 'Horário',
+            newStudentTitle: "Novo Aluno",
+            name: "Nome",
+            startDate: 'Data de Inicio',
         }
     }
 

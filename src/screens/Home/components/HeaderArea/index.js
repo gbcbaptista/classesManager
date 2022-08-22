@@ -30,7 +30,7 @@ export const HeaderArea = () => {
                 <View style={styles.headerTop}>
 
                     <View style={styles.namesContainer}>
-                        <RegularText style={styles.name}>{texts.hey}</RegularText>
+                        <RegularText style={styles.name}>{texts.hey}, </RegularText>
                         <BoldText style={styles.name}>{user.name}</BoldText>
                     </View>
 
@@ -45,12 +45,12 @@ export const HeaderArea = () => {
                 <View style={styles.headerBottom}>
 
                     <View style={styles.valuesView}>
-                        <RegularText style={styles.headerLabels}>{texts.toReceive}</RegularText>
+                        <RegularText style={styles.headerLabels}>{texts.toReceive}: </RegularText>
                         <RegularText style={styles.headerLabels}>{texts.moneySymbol}{values.toReceiveValue}</RegularText>
                     </View>
                     
                     <View style={styles.valuesView}>
-                        <RegularText style={styles.headerLabels}>{texts.received}</RegularText>
+                        <RegularText style={styles.headerLabels}>{texts.received}: </RegularText>
                         <RegularText style={styles.headerLabels}>{texts.moneySymbol}{values.toReceiveValue}</RegularText>
                     </View>
 

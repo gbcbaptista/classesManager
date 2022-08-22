@@ -6,23 +6,6 @@ export const styles = StyleSheet.create({
       height: '100%',
       backgroundColor: '#4EADBE',
     },
-    row: {
-      marginTop: 20,
-      justifyContent: 'center',
-      flexDirection: 'row',
-      flexBasis: 150,
-      
-    },
-    label: {
-      fontSize: 20,
-      color: 'white',
-      flexGrow: 2,
-    },
-    text: {
-      fontSize: 20,
-      color: 'white',
-      marginLeft: 10,
-    },
     studentIconStyle: {
       textAlign: 'center',
       lineHeight: 80,
@@ -32,5 +15,21 @@ export const styles = StyleSheet.create({
       width: 100,
       fontSize: 50,
       color: 'white',
-    }
+    },
+    row: {
+      marginTop: 20,
+      justifyContent: 'center',
+      flexDirection: 'row',
+      flexBasis: 50, 
+    },
+    label: {
+      fontSize: 20,
+      color: 'white',
+    },
+    text: {
+      fontSize: 20,
+      color: 'white',
+      marginLeft: 10,
+    },
+    
   });
