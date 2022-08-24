@@ -43,7 +43,7 @@ export const Student = () => {
 
             <View style={styles.row}>
                 <BoldText style={styles.label}>{texts.subject}: </BoldText>
-                <RegularText style={styles.text}>{texts.subjects[student.subject]}</RegularText>
+                <RegularText style={styles.text}>{texts.subjects[student.subject].label}</RegularText>
             </View>
 
             <View style={styles.row}>
@@ -53,7 +53,7 @@ export const Student = () => {
 
             <View style={styles.row}>
                 <BoldText style={styles.label}>{texts.frequency}: </BoldText>
-                <RegularText style={styles.text}>{texts.frequencies[student.frequency]}</RegularText>
+                <RegularText style={styles.text}>{texts.frequencies[student.frequency].label}</RegularText>
             </View>
 
             <View style={styles.row}>

@@ -24,7 +24,7 @@ export const Item = ({ todayClass }) => {
       </View>
       
         <View style={styles.subjectContainer}>
-          <RegularText style={styles.contentSubject}>{texts.subjects[todayClass.student.subject]}</RegularText>
+          <RegularText style={styles.contentSubject}>{texts.subjects[todayClass.student.subject].label}</RegularText>
         </View>
         <View style={styles.timeContainer}>
           <RegularText style={styles.contentTime}>{todayClass.student.time}</RegularText>

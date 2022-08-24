@@ -13,11 +13,18 @@ export const TextProvider = ({children}) => {
             moneySymbol: "U$",
             todayClasses: "Today classes",
             subject: "Subject",
-            subjects: ['Piano', 'Organ', 'Musical Theory'],
+            subjects: [
+                {label: 'Piano', value: 0},
+                {label: 'Organ', value: 1},
+                {label: 'Musical Theory', value: 2}
+              ],
             paymentDay: "Payment Day",
             day: "Day",
             frequency: "Frequency",
-            frequencies: ['Weekly', 'Biweekly'],
+            frequencies:[
+                {label: 'Weekly', value: 0},
+                {label: 'Biweekly', value: 1}
+              ],
             time: 'Time',
             newStudentTitle: "New Student",
             name: "Name",
@@ -31,11 +38,18 @@ export const TextProvider = ({children}) => {
             moneySymbol: "R$",
             todayClasses: "Aulas de hoje",
             subject: "Matéria",
-            subjects: ['Piano', 'Orgão', 'Teoria Musical'],
+            subjects: [
+                {label: 'Piano', value: 0},
+                {label: 'Orgão', value: 1},
+                {label: 'Teoria Musical', value: 2}
+              ],
             paymentDay: "Dia de Pagamento",
             day: "Dia",
             frequency: "Frequência",
-            frequencies: ['Semanal', 'Quinzenal'],
+            frequencies: [
+                {label: 'Semanal', value: 0},
+                {label: 'Quinzenal', value: 1}
+              ],
             time: 'Horário',
             newStudentTitle: "Novo Aluno",
             name: "Nome",

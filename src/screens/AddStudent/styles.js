@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
       alignItems: 'center'
     },
     input: {
+      paddingLeft: 15,
       backgroundColor: '#fff',
       paddingHorizontal: 5,
       marginHorizontal: 5,
@@ -38,5 +39,6 @@ export const styles = StyleSheet.create({
       fontSize: 18,
       lineHeight: 40,
       color: '#fff'
-    }
+    },
+
   });
