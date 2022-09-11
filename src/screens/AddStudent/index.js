@@ -26,7 +26,10 @@ export const AddStudent = () => {
         openDayPicker,
 
         currentDate,
-        openDatePicker
+        openDatePicker,
+
+        currentTime,
+        openTimePicker
     } = useContext(DatePickerContext);
 
     useEffect(
@@ -37,7 +40,6 @@ export const AddStudent = () => {
     const [newStudent, setNewStudent] = useState(newStudentModel)
 
     const changeStudentData = (tag, value) => {
-        console.log('trying...')
         let updatedStudent = {...newStudent};
         updatedStudent.student[tag] = value
 
@@ -45,7 +47,6 @@ export const AddStudent = () => {
         
     }
     const [name, setName] = useState('')
-    const [startDate, setStartDate] = useState('')
     const [frequency, setFrequency] = useState('')
     const [time, setTime] = useState('')
     const [gender, setGender] = useState('2')
@@ -56,72 +57,16 @@ export const AddStudent = () => {
     const [email, setEmail] = useState('joao@gmail.com')
     const [phone, setPhone] = useState('11 987811864')
 
-    useEffect(
-        () => {
-            startDate !== '' &&
-            frequency !== '' &&
-            time !== '' &&
-            gender !== '' 
-            ? setAllowedToSave(true) : setAllowedToSave(false)
-        },
-        [startDate, frequency, time, gender]
-    )
-
     const onChangeDay = (event, selectedDay) => {
         setNewStudent(changeStudentData('paymentDay', currentDay(selectedDay)))
     }
-// coding change
-    // const currentDate = (currentDate) => {
-    //     return `${texts.weekDays[currentDate.getDay()]} ${formatNumber(currentDate.getDate())} ${texts.months[currentDate.getMonth()]} ${currentDate.getFullYear()}`
-    // }
 
     const onChangeDate = (event, selectedDate) => {
-        console.log('teste')
         setNewStudent(changeStudentData('startDate', selectedDate))
-        console.log(newStudent.student)
-    }
-
-    // const openDatePicker = () => {
-    //     DateTimePickerAndroid.open(
-    //         {value: new Date(),
-    //         onChange: onChangeDate,
-    //         mode: 'date',
-    //     });
-    // }
-// coding change
-
-    const currentTime = (currentTime) => {
-        return `${formatNumber(currentTime.getHours())}:${formatNumber(currentTime.getMinutes())}`
     }
 
     const onChangeTime = (event, selectedTime) => {
-        setTime(selectedTime);
-    }
-
-    const openTimePicker = () => {
-        DateTimePickerAndroid.open(
-            {value: new Date(),
-            onChange: onChangeTime,
-            mode: 'time',
-        });
-    }
-
-    const createStudent = () => {
-        console.log(name)
-        let newStudent = {
-            id:9, student:{
-                name: name,
-                subject: subject,
-                startDate: currentDate(startDate), 
-                frequency: parseInt(frequency),
-                time: currentTime(time),
-                studentIcon: parseInt(gender)
-            }
-         }
-
-        addStudent(newStudent)
-        console.log(newStudent)
-        console.log('creating...')
+        setNewStudent(changeStudentData('time', selectedTime))
     }
 
     const addNewStudent = () => {
@@ -196,7 +141,15 @@ export const AddStudent = () => {
 
             <View style={styles.inputContainer}>
                 <BoldText style={styles.inputLabel}>{texts.time}</BoldText>
-                <Text onPress={() => openTimePicker()} style={styles.dateLabel}>{time === '' ? currentTime(new Date()) : currentTime(time)}</Text>
+                <Text 
+                onPress={() => openTimePicker(DateTimePickerAndroid, onChangeTime)}
+                style={styles.dateLabel}>
+                    {
+                        newStudent.student.time === '' ?
+                        currentTime(new Date())
+                        : currentTime(newStudent.student.time)
+                    }
+                </Text>
             </View>
 
             <View style={[styles.inputContainer, {zIndex: 100}]}>

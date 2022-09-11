@@ -21,8 +21,8 @@ export const DatePickerProvider = ({children}) => {
     }
 
     //date
-    const currentDate = (startDate, texts) => {
-        return `${texts.weekDays[startDate.getDay()]} ${formatNumber(startDate.getDate())} ${texts.months[startDate.getMonth()]} ${startDate.getFullYear()}`
+    const currentDate = (date, texts) => {
+        return `${texts.weekDays[date.getDay()]} ${formatNumber(date.getDate())} ${texts.months[date.getMonth()]} ${date.getFullYear()}`
     }
 
     const openDatePicker = (Android, onChangeDate) => {
@@ -33,13 +33,29 @@ export const DatePickerProvider = ({children}) => {
         });
     }
 
+    //time
+    const currentTime = (currentTime) => {
+        return `${formatNumber(currentTime.getHours())}:${formatNumber(currentTime.getMinutes())}`
+    }
+
+    const openTimePicker = (Android, onChangeTime) => {
+        Android.open(
+            {value: new Date(),
+            onChange: onChangeTime,
+            mode: 'time',
+        });
+    }
+
     return(
         <DatePickerContext.Provider value={{
             currentDay,
             openDayPicker,
 
             currentDate,
-            openDatePicker
+            openDatePicker,
+
+            currentTime,
+            openTimePicker
         }}>
             {children}
         </DatePickerContext.Provider>
