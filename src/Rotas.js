@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AccountingProvider } from "./contexts/PaymentContext";
+import { DayPickerProvider } from "./contexts/DayPickerContext";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -15,10 +16,10 @@ const Stack = createNativeStackNavigator();
 export const HomeScreen = () => {
   return (
     <AccountingProvider>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
-        <Stack.Screen name='Student' component={Student} options={{headerShown: false}} />
-      </Stack.Navigator>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+          <Stack.Screen name='Student' component={Student} options={{headerShown: false}} />
+        </Stack.Navigator>
     </AccountingProvider>
   );
 }
@@ -26,28 +27,30 @@ export const HomeScreen = () => {
 export const Rotas = () => {
   
     return (
-    <NavigationContainer>
-      <Tab.Navigator initialRouteName="Informations">
-        <Tab.Screen name='AddStudent' component={AddStudent}
-          options={{
-            headerShown: false, 
-            tabBarLabel: 'New Students',
-            tabBarIcon: ({ color, size }) => (
-              <AddStudentIcon />
-            ),
-          }}
-          />
-        <Tab.Screen name="Informations" component={HomeScreen} 
-          options={{
-            headerShown: false, 
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ color, size }) => (
-              <HomeIcon />
-            ),
-          }}
-          />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <DayPickerProvider>  
+      <NavigationContainer>
+        <Tab.Navigator initialRouteName="Informations">
+          <Tab.Screen name='AddStudent' component={AddStudent}
+            options={{
+              headerShown: false, 
+              tabBarLabel: 'New Students',
+              tabBarIcon: ({ color, size }) => (
+                <AddStudentIcon />
+              ),
+            }}
+            />
+          <Tab.Screen name="Informations" component={HomeScreen} 
+            options={{
+              headerShown: false, 
+              tabBarLabel: 'Home',
+              tabBarIcon: ({ color, size }) => (
+                <HomeIcon />
+              ),
+            }}
+            />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </DayPickerProvider>
     )
 }
 

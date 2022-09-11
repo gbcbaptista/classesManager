@@ -8,6 +8,7 @@ import { styles } from "./styles";
 import { DateTimePickerAndroid, RCTDateTimePickerNative } from '@react-native-community/datetimepicker';
 import { formatNumber } from "../../helpers/dateHandler";
 import { StudentContext } from "../../contexts/StudentContext";
+import { DayPickerContext, DayPickerProvider } from "../../contexts/DayPickerContext";
 
 
 export const AddStudent = () => {
@@ -20,6 +21,16 @@ export const AddStudent = () => {
         addStudent
     } = useContext(StudentContext);
 
+    const {
+        currentDay,
+        openDayPicker
+    } = useContext(DayPickerContext);
+
+    useEffect(
+        () => setItems(texts.subjects),
+        [texts]
+    )
+
     const [newStudent, setNewStudent] = useState(newStudentModel)
 
     const changeStudentData = (tag, value) => {
@@ -30,7 +41,7 @@ export const AddStudent = () => {
         
     }
     const [name, setName] = useState('')
-    const [paymentDay, setPaymentDay] = useState('')
+    // const [paymentDay, setPaymentDay] = useState('')
     const [startDate, setStartDate] = useState('')
     const [frequency, setFrequency] = useState('')
     const [time, setTime] = useState('')
@@ -44,37 +55,20 @@ export const AddStudent = () => {
 
     useEffect(
         () => {
-            paymentDay !== '' &&
+            // paymentDay !== '' &&
             startDate !== '' &&
             frequency !== '' &&
             time !== '' &&
             gender !== '' 
             ? setAllowedToSave(true) : setAllowedToSave(false)
         },
-        [paymentDay, startDate, frequency, time, gender]
+        [startDate, frequency, time, gender]
     )
-
-    useEffect(
-        () => setItems(texts.subjects),
-        [texts]
-    )
-
-    const currentDay = (currentDay) => {
-        return `${texts.day} ${formatNumber(currentDay.getDate())}`
-    }
 
     const onChangeDay = (event, seletedDay) => {
-        setPaymentDay(seletedDay);
+        setNewStudent(changeStudentData('paymentDay', currentDay(seletedDay)))
+        console.log(newStudent.student)
     }
-
-    const openDayPicker = () => {
-        DateTimePickerAndroid.open(
-            {value: new Date(),
-            onChange: onChangeDay,
-            mode: 'date',
-        });
-    }
-    
 
     const currentDate = (currentDate) => {
         return `${texts.weekDays[currentDate.getDay()]} ${formatNumber(currentDate.getDate())} ${texts.months[currentDate.getMonth()]} ${currentDate.getFullYear()}`
@@ -114,7 +108,7 @@ export const AddStudent = () => {
             id:9, student:{
                 name: name,
                 subject: subject,
-                paymentDay: `${paymentDay.getDate()}`,
+                // paymentDay: `${paymentDay.getDate()}`,
                 startDate: currentDate(startDate), 
                 frequency: parseInt(frequency),
                 time: currentTime(time),
@@ -142,7 +136,7 @@ export const AddStudent = () => {
                 <BoldText style={styles.inputLabel}>{texts.name}</BoldText>
                 <TextInput 
                     style={styles.input}
-                    defaultValue={newStudent.name}
+                    defaultValue={newStudent.student.name}
                     onChangeText={text => setNewStudent(changeStudentData('name', text))}
                 />
             </View>
@@ -164,14 +158,24 @@ export const AddStudent = () => {
 
             <View style={styles.inputContainer}>
                 <BoldText style={styles.inputLabel}>{texts.paymentDay}</BoldText>
-                <Text onPress={() => openDayPicker()} style={styles.dateLabel}>
-                    {paymentDay === '' ? currentDay(new Date()) : currentDay(paymentDay)}
+                <Text onPress={() => openDayPicker(DateTimePickerAndroid, onChangeDay)} style={styles.dateLabel}>
+                    {
+                        newStudent.student.paymentDay === 0 ?
+                        `${texts.day} ${currentDay(new Date())}` 
+                        : `${texts.day} ${newStudent.student.paymentDay}`
+                    }
                 </Text>
             </View>
 
             <View style={styles.inputContainer}>
                 <BoldText style={styles.inputLabel}>{texts.startDate}</BoldText>
-                <Text onPress={() => openDatePicker()} style={styles.dateLabel}>{startDate === '' ? currentDate(new Date()) : currentDate(startDate)}</Text>
+                <Text onPress={() => openDatePicker()} style={styles.dateLabel}>
+                    {
+                        startDate === '' ? 
+                        `${currentDate(new Date())}` 
+                        : `${currentDate(startDate)}`
+                    }
+                </Text>
             </View>
 
             <View style={styles.inputContainer}>

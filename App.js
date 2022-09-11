@@ -3,10 +3,6 @@ import Constants from 'expo-constants';
 import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
 import { TextProvider } from './src/contexts/TextContext';
 import { UserProvider } from './src/contexts/UserContext';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from './src/screens/Home';
-
 import { useFonts,
         Montserrat_400Regular,
         Montserrat_700Bold,
@@ -29,13 +25,13 @@ const [ fontLoaded ] = useFonts({
     <TextProvider>
       <UserProvider>
         <StudentProvider>
-          <StatusBar 
-            StatusBarStyle='light-content'
-            backgroundColor="#fff"
-          />
-          <SafeAreaView style={styles.container}>
-            <Rotas />
-          </SafeAreaView>
+            <StatusBar 
+              StatusBarStyle='light-content'
+              backgroundColor="#fff"
+            />
+            <SafeAreaView style={styles.container}>
+              <Rotas />
+            </SafeAreaView>
         </StudentProvider>
       </UserProvider>
     </TextProvider>

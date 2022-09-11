@@ -9,7 +9,7 @@ export const StudentProvider = ({children}) => {
         student: {
             'name': '',
             'subject': 0,
-            'paymentDay': 15,
+            'paymentDay': 0,
             'startDate': '',
             'frequency': 0,
             'time': '',
