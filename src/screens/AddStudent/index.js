@@ -8,7 +8,7 @@ import { styles } from "./styles";
 import { DateTimePickerAndroid, RCTDateTimePickerNative } from '@react-native-community/datetimepicker';
 import { formatNumber } from "../../helpers/dateHandler";
 import { StudentContext } from "../../contexts/StudentContext";
-import { DayPickerContext, DayPickerProvider } from "../../contexts/DayPickerContext";
+import { DatePickerContext } from "../../contexts/DatePickerContext";
 
 
 export const AddStudent = () => {
@@ -24,7 +24,7 @@ export const AddStudent = () => {
     const {
         currentDay,
         openDayPicker
-    } = useContext(DayPickerContext);
+    } = useContext(DatePickerContext);
 
     useEffect(
         () => setItems(texts.subjects),
@@ -67,7 +67,7 @@ export const AddStudent = () => {
         setNewStudent(changeStudentData('paymentDay', currentDay(seletedDay)))
         console.log(newStudent.student)
     }
-
+// coding change
     const currentDate = (currentDate) => {
         return `${texts.weekDays[currentDate.getDay()]} ${formatNumber(currentDate.getDate())} ${texts.months[currentDate.getMonth()]} ${currentDate.getFullYear()}`
     }
@@ -83,6 +83,7 @@ export const AddStudent = () => {
             mode: 'date',
         });
     }
+// coding change
 
     const currentTime = (currentTime) => {
         return `${formatNumber(currentTime.getHours())}:${formatNumber(currentTime.getMinutes())}`

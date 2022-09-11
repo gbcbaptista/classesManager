@@ -8,7 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AccountingProvider } from "./contexts/PaymentContext";
-import { DayPickerProvider } from "./contexts/DayPickerContext";
+import { DatePickerProvider } from "./contexts/DatePickerContext";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -27,7 +27,7 @@ export const HomeScreen = () => {
 export const Rotas = () => {
   
     return (
-    <DayPickerProvider>  
+    <DatePickerProvider>  
       <NavigationContainer>
         <Tab.Navigator initialRouteName="Informations">
           <Tab.Screen name='AddStudent' component={AddStudent}
@@ -50,7 +50,7 @@ export const Rotas = () => {
             />
         </Tab.Navigator>
       </NavigationContainer>
-    </DayPickerProvider>
+    </DatePickerProvider>
     )
 }
 

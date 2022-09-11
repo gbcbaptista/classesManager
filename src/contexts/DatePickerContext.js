@@ -1,9 +1,9 @@
 import React, { useEffect, useState, createContext, useContext } from 'react';
 import { formatNumber } from '../helpers/dateHandler';
 
-export const DayPickerContext = createContext({})
+export const DatePickerContext = createContext({})
 
-export const DayPickerProvider = ({children}) => {
+export const DatePickerProvider = ({children}) => {
 
     const [paymentDay, setPaymentDay] = useState('')
 
@@ -20,11 +20,11 @@ export const DayPickerProvider = ({children}) => {
     }
 
     return(
-        <DayPickerContext.Provider value={{
+        <DatePickerContext.Provider value={{
             currentDay,
             openDayPicker
         }}>
             {children}
-        </DayPickerContext.Provider>
+        </DatePickerContext.Provider>
     );
 }
