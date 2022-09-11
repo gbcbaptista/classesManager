@@ -18,11 +18,8 @@ export const ClassesListArea = () => {
     } = useContext(TextContext);
 
     const {
-        students,
         studentsList,
     } = useContext(StudentContext);
-
-    
 
     const renderItem = ({item}) => (
         <Item todayClass={item} />

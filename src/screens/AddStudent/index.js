@@ -1,22 +1,24 @@
 import React, { useContext, useState, useEffect } from "react";
 import { TextInput, View, Text, TouchableOpacity } from "react-native";
 import { BoldText } from "../../components/BoldText";
-import { RegularText } from "../../components/RegularText";
 import DropdownComponent from "../../components/DropdownComponent";
 import { TextContext } from "../../contexts/TextContext";
 import { styles } from "./styles";
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import { formatNumber } from "../../helpers/dateHandler";
 import { StudentContext } from "../../contexts/StudentContext";
 import { DatePickerContext } from "../../contexts/DatePickerContext";
+import { useNavigation } from '@react-navigation/native';
 
 
 export const AddStudent = () => {
+    const navigation = useNavigation();
+
     const {
         texts,
     } = useContext(TextContext);
 
     const {
+        studentsList,
         newStudentModel,
         addStudent
     } = useContext(StudentContext);
@@ -37,26 +39,16 @@ export const AddStudent = () => {
         [texts]
     )
 
-    const [newStudent, setNewStudent] = useState(newStudentModel)
+    const [newStudent, setNewStudent] = useState(newStudentModel);
+    const [open, setOpen] = useState(false);
+    const [items, setItems] = useState(texts.subjects);
 
     const changeStudentData = (tag, value) => {
         let updatedStudent = {...newStudent};
         updatedStudent.student[tag] = value
-        console.log(newStudent.student)
 
         return updatedStudent
-        
     }
-    // const [name, setName] = useState('')
-    const [frequency, setFrequency] = useState('')
-    // const [time, setTime] = useState('')
-    const [gender, setGender] = useState('2')
-    const [allowedToSave, setAllowedToSave] = useState(false)
-    const [open, setOpen] = useState(false);
-    const [subject, setSubject] = useState(null)
-    const [items, setItems] = useState(texts.subjects)
-    const [email, setEmail] = useState('joao@gmail.com')
-    const [phone, setPhone] = useState('11 987811864')
 
     const onChangeDay = (event, selectedDay) => {
         setNewStudent(changeStudentData('paymentDay', currentDay(selectedDay)))
@@ -71,12 +63,12 @@ export const AddStudent = () => {
     }
 
     const addNewStudent = () => {
+        let student = newStudent;
+        student.id = studentsList.length+1;
+        console.log(newStudent)
+        setNewStudent(student)
         addStudent(newStudent)
-    }
-
-    const setTest = (text) => {
-        console.log('teste..............')
-        console.log(text)
+        navigation.navigate('Home')
     }
     
 
@@ -140,8 +132,8 @@ export const AddStudent = () => {
                 <BoldText style={styles.inputLabel}>{texts.frequency}</BoldText>
                 <TextInput 
                     style={styles.input}
-                    defaultValue={frequency}
-                    onChangeText={text => setFrequency(text)}
+                    defaultValue={newStudent.student.frequency}
+                    onChangeText={text => setNewStudent(changeStudentData('frequency', parseInt(text)))}
                 />
             </View>
 
@@ -162,8 +154,8 @@ export const AddStudent = () => {
                 <BoldText style={styles.inputLabel}>Gender</BoldText>
                 <TextInput 
                     style={styles.input}
-                    defaultValue={gender}
-                    onChangeText={text => setGender(text)}
+                    defaultValue={newStudent.student.gender}
+                    onChangeText={text => setNewStudent(changeStudentData('gender', parseInt(text)))}
                 />
             </View>
 
@@ -171,8 +163,8 @@ export const AddStudent = () => {
                 <BoldText style={styles.inputLabel}>{texts.email}</BoldText>
                 <TextInput 
                     style={styles.input}
-                    defaultValue={email}
-                    onChangeText={text => setEmail(text)}
+                    defaultValue={newStudent.student.email}
+                    onChangeText={text => setNewStudent(changeStudentData('email', text))}
                 />
             </View>
 
@@ -180,14 +172,14 @@ export const AddStudent = () => {
                 <BoldText style={styles.inputLabel}>{texts.phone}</BoldText>
                 <TextInput 
                     style={styles.input}
-                    defaultValue={phone}
-                    onChangeText={text => setPhone(text)}
+                    defaultValue={newStudent.student.phone}
+                    onChangeText={text => setNewStudent(changeStudentData('phone', text))}
                 />
             </View>
 
             <View style={[{ flex: 1, alignItems: 'flex-end' }]}>
                 <View style={[{ flex: 1, flexDirection: 'row', alignItems: 'flex-end' }]}>
-                    <TouchableOpacity onPress={() => createStudent()} style={styles.buttonSave} disabled={!allowedToSave}>
+                    <TouchableOpacity onPress={() => addNewStudent()} style={styles.buttonSave} disabled={false}>
                         <BoldText style={[styles.buttonText]}>{texts.save}</BoldText>
                     </TouchableOpacity>
                 </View>

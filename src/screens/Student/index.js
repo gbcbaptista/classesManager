@@ -6,6 +6,7 @@ import { BoldText } from "../../components/BoldText";
 import { RegularText } from "../../components/RegularText";
 import * as Calendar from 'expo-calendar';
 import { TextContext } from "../../contexts/TextContext";
+import { DatePickerContext } from "../../contexts/DatePickerContext";
 
 export const Student = () => {
     const route = useRoute();
@@ -16,9 +17,11 @@ export const Student = () => {
         texts,
     } = useContext(TextContext);
 
-    useEffect(
-        () => navigation.setOptions({ title: student.name }),[]
-    )
+    const {
+        currentDay,
+        currentDate,
+        currentTime,
+    } = useContext(DatePickerContext);
 
     const getCalendars = async () => {
         const calendars = await Calendar.getCalendarsAsync();
@@ -31,12 +34,12 @@ export const Student = () => {
     return(
         <View style={styles.container}>
 
-            {student.studentIcon == 1 &&
+            {student.studentIcon === 1 &&
                 <View style={[styles.row, {paddingBottom: 150,}]}>
                     <BoldText style={styles.studentIconStyle}>👨‍🎓</BoldText>
                 </View>}
 
-            {student.studentIcon == 2 &&
+            {student.studentIcon === 0 &&
                 <View style={[styles.row, {paddingBottom: 150,}]}>
                     <BoldText style={styles.studentIconStyle}>👩‍🎓</BoldText>
                 </View>}
@@ -53,7 +56,7 @@ export const Student = () => {
 
             <View style={styles.row}>
                 <BoldText style={styles.label}>{texts.paymentDay}: </BoldText>
-                <RegularText style={styles.text}>{texts.day} {student.paymentDay}</RegularText>
+                <RegularText style={styles.text}>{texts.day} {currentDay(student.paymentDay)}</RegularText>
             </View>
 
             <View style={styles.row}>
@@ -63,7 +66,7 @@ export const Student = () => {
 
             <View style={styles.row}>
                 <BoldText style={styles.label}>{texts.time}: </BoldText>
-                <RegularText style={styles.text}>{student.time}h</RegularText>
+                <RegularText style={styles.text}>{currentTime(Date(student.paymentDay))}h</RegularText>
             </View>
 
 

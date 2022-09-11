@@ -5,6 +5,7 @@ import { RegularText } from "../../../../../components/RegularText";
 import { styles } from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { TextContext } from "../../../../../contexts/TextContext";
+import { DatePickerContext } from "../../../../../contexts/DatePickerContext";
 
 
 export const Item = ({ todayClass }) => {
@@ -13,9 +14,15 @@ export const Item = ({ todayClass }) => {
     texts,
   } = useContext(TextContext);
 
+  const {
+    currentDay,
+    currentDate,
+    currentTime,
+} = useContext(DatePickerContext);
+
   const navigation = useNavigation();
   return(
-  <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Student', todayClass)}>
+  <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Student', todayClass.student)}>
     <View style={styles.item}>
 
       <View style={styles.idNameContainer}>
@@ -27,7 +34,7 @@ export const Item = ({ todayClass }) => {
           <RegularText style={styles.contentSubject}>{texts.subjects[todayClass.student.subject].label}</RegularText>
         </View>
         <View style={styles.timeContainer}>
-          <RegularText style={styles.contentTime}>{todayClass.student.time}</RegularText>
+          <RegularText style={styles.contentTime}>{currentTime(Date(todayClass.student.time))}</RegularText>
         </View>
       
     </View>
