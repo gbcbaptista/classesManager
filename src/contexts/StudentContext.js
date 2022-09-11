@@ -4,6 +4,21 @@ export const StudentContext = createContext({})
 
 export const StudentProvider = ({children}) => {
 
+    const newStudentModel = {
+        id: 1,
+        student: {
+            'name': '',
+            'subject': 0,
+            'paymentDay': 15,
+            'startDate': '',
+            'frequency': 0,
+            'time': '',
+            'gender': 0,
+            'email': '',
+            'phone': ''
+        }
+    }
+
     const students = [
         {id:1, student:{name: 'Raquel', subject: 1, paymentDay: '10', startDate: '08-01-2022', frequency: 0, time: '09:00', studentIcon: 2,}},
         {id:2, student:{name: 'Gabriel', subject: 0, paymentDay: '15', startDate: '07-01-2022', frequency: 1, time: '10:00', studentIcon: 1,}},
@@ -22,6 +37,7 @@ export const StudentProvider = ({children}) => {
 
     return(
         <StudentContext.Provider value={{
+            newStudentModel,
             studentsList,
             addStudent
         }}>

@@ -16,10 +16,19 @@ export const AddStudent = () => {
     } = useContext(TextContext);
 
     const {
+        newStudentModel,
         addStudent
     } = useContext(StudentContext);
 
+    const [newStudent, setNewStudent] = useState(newStudentModel)
 
+    const changeStudentData = (tag, value) => {
+        let updatedStudent = {...newStudent};
+        updatedStudent.student[tag] = value
+
+        return updatedStudent
+        
+    }
     const [name, setName] = useState('')
     const [paymentDay, setPaymentDay] = useState('')
     const [startDate, setStartDate] = useState('')
@@ -117,6 +126,10 @@ export const AddStudent = () => {
         console.log(newStudent)
         console.log('creating...')
     }
+
+    const addNewStudent = () => {
+        addStudent(newStudent)
+    }
     
 
     return(
@@ -129,8 +142,8 @@ export const AddStudent = () => {
                 <BoldText style={styles.inputLabel}>{texts.name}</BoldText>
                 <TextInput 
                     style={styles.input}
-                    defaultValue={name}
-                    onChangeText={text => setName(text)}
+                    defaultValue={newStudent.name}
+                    onChangeText={text => setNewStudent(changeStudentData('name', text))}
                 />
             </View>
 
