@@ -5,10 +5,11 @@ export const DatePickerContext = createContext({})
 
 export const DatePickerProvider = ({children}) => {
 
+    //day
     const [paymentDay, setPaymentDay] = useState('')
 
-    const currentDay = (currentDay) => {
-        return currentDay.getDate()
+    const currentDay = (day) => {
+        return day.getDate()
     }
 
     const openDayPicker = (Android, onChangeDay) => {
@@ -19,10 +20,26 @@ export const DatePickerProvider = ({children}) => {
         });
     }
 
+    //date
+    const currentDate = (startDate, texts) => {
+        return `${texts.weekDays[startDate.getDay()]} ${formatNumber(startDate.getDate())} ${texts.months[startDate.getMonth()]} ${startDate.getFullYear()}`
+    }
+
+    const openDatePicker = (Android, onChangeDate) => {
+        Android.open(
+            {value: new Date(),
+            onChange: onChangeDate,
+            mode: 'date',
+        });
+    }
+
     return(
         <DatePickerContext.Provider value={{
             currentDay,
-            openDayPicker
+            openDayPicker,
+
+            currentDate,
+            openDatePicker
         }}>
             {children}
         </DatePickerContext.Provider>
