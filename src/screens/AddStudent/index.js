@@ -42,13 +42,14 @@ export const AddStudent = () => {
     const changeStudentData = (tag, value) => {
         let updatedStudent = {...newStudent};
         updatedStudent.student[tag] = value
+        console.log(newStudent.student)
 
         return updatedStudent
         
     }
-    const [name, setName] = useState('')
+    // const [name, setName] = useState('')
     const [frequency, setFrequency] = useState('')
-    const [time, setTime] = useState('')
+    // const [time, setTime] = useState('')
     const [gender, setGender] = useState('2')
     const [allowedToSave, setAllowedToSave] = useState(false)
     const [open, setOpen] = useState(false);
@@ -71,6 +72,11 @@ export const AddStudent = () => {
 
     const addNewStudent = () => {
         addStudent(newStudent)
+    }
+
+    const setTest = (text) => {
+        console.log('teste..............')
+        console.log(text)
     }
     
 
@@ -96,10 +102,10 @@ export const AddStudent = () => {
                     containerStyle={styles.dropdownContainer}
                     maxHeight={200}
                     open={open}
-                    value={subject}
+                    value={newStudent.student.subject}
                     items={items}
                     setOpen={setOpen}
-                    setValue={setSubject}
+                    onSelectItem={text => setNewStudent(changeStudentData('subject', text.value))}
                     setItems={setItems}
                 />
             </View>
