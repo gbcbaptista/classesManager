@@ -41,7 +41,6 @@ export const AddStudent = () => {
         
     }
     const [name, setName] = useState('')
-    // const [paymentDay, setPaymentDay] = useState('')
     const [startDate, setStartDate] = useState('')
     const [frequency, setFrequency] = useState('')
     const [time, setTime] = useState('')
@@ -55,7 +54,6 @@ export const AddStudent = () => {
 
     useEffect(
         () => {
-            // paymentDay !== '' &&
             startDate !== '' &&
             frequency !== '' &&
             time !== '' &&
@@ -108,7 +106,6 @@ export const AddStudent = () => {
             id:9, student:{
                 name: name,
                 subject: subject,
-                // paymentDay: `${paymentDay.getDate()}`,
                 startDate: currentDate(startDate), 
                 frequency: parseInt(frequency),
                 time: currentTime(time),
