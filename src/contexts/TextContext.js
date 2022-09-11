@@ -7,6 +7,7 @@ export const TextProvider = ({children}) => {
 
     const labels = {
         english: {
+            locale: 'en-US',
             hey: "Hi",
             toReceive: "To receive",
             received: "Received",
@@ -28,10 +29,18 @@ export const TextProvider = ({children}) => {
             time: 'Time',
             newStudentTitle: "New Student",
             name: "Name",
-            startDate: 'Start Date'
+            startDate: 'Start Date',
+            month: 'Month',
+            months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+            day: 'Day',
+            weekDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            save: 'Save',
+            email: "Email",
+            phone: "Phone",
 
         },
         portuguese: {
+            locale: 'pt-br',
             hey: "Olá",
             toReceive: "À receber",
             received: "Recebido",
@@ -54,6 +63,13 @@ export const TextProvider = ({children}) => {
             newStudentTitle: "Novo Aluno",
             name: "Nome",
             startDate: 'Data de Inicio',
+            month: 'Mês',
+            months: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            day: 'Dia',
+            weekDays: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+            save: 'Salvar',
+            email: "Email",
+            phone: "Celular",
         }
     }
 

@@ -3,22 +3,23 @@ import { Home } from './screens/Home';
 import { AddStudent } from './screens/AddStudent';
 import { Student } from './screens/Student';
 import Constants from 'expo-constants';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HeaderArea } from "./screens/Home/components/HeaderArea";
+import { AccountingProvider } from "./contexts/PaymentContext";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export const HomeScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
-      <Stack.Screen name='Student' component={Student} options={{headerShown: false}} />
-    </Stack.Navigator>
+    <AccountingProvider>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+        <Stack.Screen name='Student' component={Student} options={{headerShown: false}} />
+      </Stack.Navigator>
+    </AccountingProvider>
   );
 }
 

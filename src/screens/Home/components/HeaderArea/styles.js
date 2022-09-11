@@ -6,11 +6,6 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       width: '100%',
       backgroundColor: '#4EADBE',
-      // shadowColor: '#000',
-      // shadowOffset: { width: 0, height: 2 },
-      // shadowOpacity: 0.5,
-      // shadowRadius: 0,
-      // elevation: 10,
     },
     header: {
       height: 110,

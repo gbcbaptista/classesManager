@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { BoldText } from "../../../../components/BoldText";
 import { RegularText } from "../../../../components/RegularText";
+import { AccountingContext } from "../../../../contexts/PaymentContext";
 import { TextContext } from "../../../../contexts/TextContext";
 import { UserContext } from "../../../../contexts/UserContext";
 import { styles } from "./styles";
@@ -12,9 +13,13 @@ export const HeaderArea = () => {
         user
     } = useContext(UserContext);
 
+    const {
+        accounting
+    } = useContext(AccountingContext)
+
     const values = {
-        toReceiveValue: 1000,
-        receivedValue: 1000
+        toReceiveValue: accounting.toReceive,
+        receivedValue: accounting.received
     }
 
     const {
@@ -51,7 +56,7 @@ export const HeaderArea = () => {
                     
                     <View style={styles.valuesView}>
                         <RegularText style={styles.headerLabels}>{texts.received}: </RegularText>
-                        <RegularText style={styles.headerLabels}>{texts.moneySymbol}{values.toReceiveValue}</RegularText>
+                        <RegularText style={styles.headerLabels}>{texts.moneySymbol}{values.receivedValue}</RegularText>
                     </View>
 
                 </View>

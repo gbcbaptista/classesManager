@@ -14,9 +14,16 @@ export const StudentProvider = ({children}) => {
         {id:7, student:{name: 'Marenilda', subject: 0, paymentDay: '20', startDate: '02-27-2020', frequency: 1, time: '16:00', studentIcon: 2,}},
     ]
 
+    const [studentsList, setStudentsList] = useState(students);
+
+    const addStudent = (newStudent) => {
+        setStudentsList([...studentsList, newStudent])
+    }
+
     return(
         <StudentContext.Provider value={{
-            students
+            studentsList,
+            addStudent
         }}>
             {children}
         </StudentContext.Provider>

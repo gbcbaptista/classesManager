@@ -14,11 +14,12 @@ export const ClassesListArea = () => {
     const {
         texts,
         language,
-        setLanguage,
+        setLanguage
     } = useContext(TextContext);
 
     const {
-        students
+        students,
+        studentsList,
     } = useContext(StudentContext);
 
     
@@ -31,7 +32,9 @@ export const ClassesListArea = () => {
         <View style={styles.container}>
             <BoldText style={styles.todayClassesTitle}>{texts.todayClasses}</BoldText>
             <FlatList
-            data={students}
+            data={studentsList}
+            key={studentsList.length}
+            extraData={studentsList}
             renderItem={renderItem}
             keyExtractor={item => item.id}
             />

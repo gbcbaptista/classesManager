@@ -17,15 +17,16 @@ export default StyleSheet.create({
         flexBasis: 'auto',
         paddingHorizontal: 5,
         marginHorizontal: 5,
+        fontSize: 18,
     },
     style: {
         flexDirection: 'row',
         alignItems: 'center',
-        // 
         justifyContent: 'space-between',
         width: '100%',
-        minHeight: 50,
-        borderRadius: 8,
+        minHeight: 40,
+        fontSize: 18,
+        borderRadius: 15,
         borderWidth: 1,
         borderColor: Colors.WHITE,
         paddingHorizontal: 10,
@@ -34,11 +35,13 @@ export default StyleSheet.create({
     },
     label: {
         flex: 1,
-        color: Colors.BLACK
+        color: Colors.BLACK,
+        fontSize: 18,
     },
     labelContainer: {
         flex: 1,
         flexDirection: 'row',
+        fontSize: 18,
     },
     arrowIcon: {
         width: 20,
@@ -58,7 +61,8 @@ export default StyleSheet.create({
         borderRadius: 10,
         backgroundColor: Colors.ALTO,
         paddingHorizontal: 10,
-        paddingVertical: 5
+        paddingVertical: 5,
+        fontSize: 18,
     },
     badgeDotStyle: {
         width: 10,
@@ -72,12 +76,14 @@ export default StyleSheet.create({
     },
     listBody: {
         height: '100%',
+        fontSize: 18,
     },
     listBodyContainer: {
         flexGrow: 1,
         alignItems: 'center',
         paddingHorizontal: 5,
         marginHorizontal: 5,
+        fontSize: 18,
     },
     dropDownContainer: {
         paddingHorizontal: 5,
@@ -89,21 +95,25 @@ export default StyleSheet.create({
         borderWidth: 1,
         width: '100%',
         overflow: 'hidden',
-        zIndex: 1000
+        zIndex: 1000,
+        fontSize: 18,
     },
     modalContentContainer: {
         flexGrow: 1,
+        fontSize: 18,
     },
     listItemContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 10,
-        height: 40
+        height: 40,
+        fontSize: 18,
     },
     listItemLabel: {
         flex: 1,
-        color: Colors.BLACK
+        color: Colors.BLACK,
+        fontSize: 18,
     },
     iconContainer: {
         marginRight: 10
@@ -121,7 +131,7 @@ export default StyleSheet.create({
 
     },
     listChildLabel: {
-
+        fontSize: 18,
     },
     listParentContainer: {
 
@@ -152,7 +162,8 @@ export default StyleSheet.create({
         backgroundColor: Colors.BLACK,
     },
     flatListContentContainer: {
-        flexGrow: 1
+        flexGrow: 1,
+        fontSize: 18,
     },
     customItemContainer: {
 

@@ -40,5 +40,36 @@ export const styles = StyleSheet.create({
       lineHeight: 40,
       color: '#fff'
     },
+    dateContainer: {
+
+    },
+    dateLabel: {
+      backgroundColor: '#fff',
+      borderRadius: 10,
+      paddingHorizontal: 15,
+      height: 40,
+      lineHeight: 35,
+      marginLeft: 20,
+      color: '#000', 
+      fontSize: 18,
+    },
+    buttonSave: {
+      margin: 20,
+      width: 150,
+      justifyContent: 'center',
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      borderRadius: 15,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5,
+      shadowRadius: 2,
+      elevation: 2,
+    },
+    buttonText: {
+      fontSize: 18,
+      lineHeight: 40,
+      color: '#000'
+    },
 
   });

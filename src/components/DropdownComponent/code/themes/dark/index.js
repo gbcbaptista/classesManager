@@ -14,13 +14,14 @@ export const ICONS = {
 export default StyleSheet.create({
     container: {
         width: '100%',
+        height: 40,
     },
     style: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        minHeight: 50,
+        minHeight: 40,
         borderRadius: 8,
         borderWidth: 1,
         borderColor: Colors.BLACK,
@@ -35,6 +36,7 @@ export default StyleSheet.create({
     labelContainer: {
         flex: 1,
         flexDirection: 'row',
+        maxHeight: 40,
     },
     arrowIcon: {
         width: 20,
@@ -49,6 +51,7 @@ export default StyleSheet.create({
         height: 30
     },
     badgeStyle: {
+        height: 40,
         flexDirection: 'row',
         alignItems: 'center',
         borderRadius: 10,
@@ -70,6 +73,7 @@ export default StyleSheet.create({
         height: '100%',
     },
     listBodyContainer: {
+        height: 40,
         flexGrow: 1,
         alignItems: 'center',
     },
@@ -138,14 +142,16 @@ export default StyleSheet.create({
         borderRadius: 8,
         borderColor: Colors.SHUTTLE_GREY,
         borderWidth: 1,
-        color: Colors.WHITE
+        color: Colors.WHITE,
+        height: 40,
     },
     itemSeparator: {
         height: 1,
         backgroundColor: Colors.SHUTTLE_GREY,
     },
     flatListContentContainer: {
-        flexGrow: 1
+        flexGrow: 1,
+        maxHeight: 40,
     },
     customItemContainer: {
 

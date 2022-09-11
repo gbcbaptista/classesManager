@@ -42,6 +42,11 @@ export const Student = () => {
                 </View>}
 
             <View style={styles.row}>
+                <BoldText style={styles.label}>{texts.name}: </BoldText>
+                <RegularText style={styles.text}>{student.name}</RegularText>
+            </View>
+
+            <View style={styles.row}>
                 <BoldText style={styles.label}>{texts.subject}: </BoldText>
                 <RegularText style={styles.text}>{texts.subjects[student.subject].label}</RegularText>
             </View>
