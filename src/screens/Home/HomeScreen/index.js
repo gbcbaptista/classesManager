@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableWithoutFeedback, View } from "react-native";
 import { FlatList } from "react-native";
-import { BoldText } from "../../../../components/BoldText";
-import { RegularText } from "../../../../components/RegularText";
-import { TextContext } from "../../../../contexts/TextContext";
+import { BoldText } from "../../../components/BoldText";
+import { TextContext } from "../../../contexts/TextContext";
 import { styles } from "./styles";
 import { Item } from "./Item";
-import { StudentContext } from "../../../../contexts/StudentContext";
+import { StudentContext } from "../../../contexts/StudentContext";
+import { HeaderArea } from "./HeaderArea"
 
-
-export const ClassesListArea = () => {
+export const HomeScreen = () => {
 
     const {
         texts,
@@ -22,14 +21,16 @@ export const ClassesListArea = () => {
     } = useContext(StudentContext);
 
     const renderItem = ({item}) => (
-        <Item todayClass={item} />
+            <Item todayClass={item} />
     );
 
     return(
         <View style={styles.container}>
+            <HeaderArea />
             <BoldText style={styles.todayClassesTitle}>{texts.todayClasses}</BoldText>
             <FlatList
             data={studentsList}
+            scrollEnabled={true}
             key={studentsList.length}
             extraData={studentsList}
             renderItem={renderItem}

@@ -6,8 +6,6 @@ export const DatePickerContext = createContext({})
 export const DatePickerProvider = ({children}) => {
 
     //day
-    const [paymentDay, setPaymentDay] = useState('')
-
     const currentDay = (day) => {
         return day.getDate()
     }

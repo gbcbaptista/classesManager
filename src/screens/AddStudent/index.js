@@ -45,7 +45,7 @@ export const AddStudent = () => {
 
     const changeStudentData = (tag, value) => {
         let updatedStudent = {...newStudent};
-        updatedStudent.student[tag] = value
+        updatedStudent.student[tag] = value;
 
         return updatedStudent
     }
@@ -55,23 +55,22 @@ export const AddStudent = () => {
     }
 
     const onChangeDate = (event, selectedDate) => {
-        setNewStudent(changeStudentData('startDate', selectedDate))
+        setNewStudent(changeStudentData('startDate', selectedDate.toString()))
     }
 
     const onChangeTime = (event, selectedTime) => {
-        setNewStudent(changeStudentData('time', selectedTime))
+        setNewStudent(changeStudentData('time', selectedTime.toString()))
     }
 
     const addNewStudent = () => {
         let student = newStudent;
         student.id = studentsList.length+1;
-        console.log(newStudent)
         setNewStudent(student)
         addStudent(newStudent)
+        setNewStudent(newStudentModel)
         navigation.navigate('Home')
     }
     
-
     return(
         <View style={styles.container}>
             <View style={styles.titleContainer}>
@@ -123,7 +122,7 @@ export const AddStudent = () => {
                     {
                         newStudent.student.startDate === '' ? 
                         `${currentDate(new Date(), texts)}`
-                        : `${currentDate(newStudent.student.startDate, texts)}`
+                        : `${currentDate(new Date(newStudent.student.startDate), texts)}`
                     }
                 </Text>
             </View>
@@ -145,7 +144,7 @@ export const AddStudent = () => {
                     {
                         newStudent.student.time === '' ?
                         currentTime(new Date())
-                        : currentTime(newStudent.student.time)
+                        : currentTime(new Date(newStudent.student.time))
                     }
                 </Text>
             </View>

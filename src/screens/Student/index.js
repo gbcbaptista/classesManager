@@ -34,14 +34,14 @@ export const Student = () => {
     return(
         <View style={styles.container}>
 
-            {student.studentIcon === 1 &&
-                <View style={[styles.row, {paddingBottom: 150,}]}>
-                    <BoldText style={styles.studentIconStyle}>👨‍🎓</BoldText>
-                </View>}
-
-            {student.studentIcon === 0 &&
+            {student.gender === 0 &&
                 <View style={[styles.row, {paddingBottom: 150,}]}>
                     <BoldText style={styles.studentIconStyle}>👩‍🎓</BoldText>
+                </View>}
+
+            {student.gender === 1 &&
+                <View style={[styles.row, {paddingBottom: 150,}]}>
+                    <BoldText style={styles.studentIconStyle}>👨‍🎓</BoldText>
                 </View>}
 
             <View style={styles.row}>
@@ -56,7 +56,7 @@ export const Student = () => {
 
             <View style={styles.row}>
                 <BoldText style={styles.label}>{texts.paymentDay}: </BoldText>
-                <RegularText style={styles.text}>{texts.day} {currentDay(student.paymentDay)}</RegularText>
+                <RegularText style={styles.text}>{texts.day} {student.paymentDay}</RegularText>
             </View>
 
             <View style={styles.row}>
@@ -66,10 +66,23 @@ export const Student = () => {
 
             <View style={styles.row}>
                 <BoldText style={styles.label}>{texts.time}: </BoldText>
-                <RegularText style={styles.text}>{currentTime(Date(student.paymentDay))}h</RegularText>
+                <RegularText style={styles.text}>{currentTime(new Date(student.time))}h</RegularText>
             </View>
 
+            <View style={styles.row}>
+                <BoldText style={styles.label}>{texts.startDate}: </BoldText>
+                <RegularText style={styles.text}>{currentDate(new Date(student.startDate), texts)}</RegularText>
+            </View>
 
+            <View style={styles.row}>
+                <BoldText style={styles.label}>{texts.email}: </BoldText>
+                <RegularText style={styles.text}>{student.email}</RegularText>
+            </View>
+
+            <View style={styles.row}>
+                <BoldText style={styles.label}>{texts.phone}: </BoldText>
+                <RegularText style={styles.text}>{student.phone}</RegularText>
+            </View>
 
         </View>
     );

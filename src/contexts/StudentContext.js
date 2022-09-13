@@ -19,14 +19,17 @@ export const StudentProvider = ({children}) => {
         }
     }
 
-    const students = [// change time
-        {id:1, student:{name: 'Raquel', subject: 1, paymentDay: '10', startDate: '08-01-2022', frequency: 0, time: '09:00', studentIcon: 0,}},
-        {id:2, student:{name: 'Gabriel', subject: 0, paymentDay: '15', startDate: '07-01-2022', frequency: 1, time: '10:00', studentIcon: 1,}},
-        {id:3, student:{name: 'Thamires', subject: 0, paymentDay: '25', startDate: '06-01-2022', frequency: 0, time: '11:00', studentIcon: 0,}},
-        {id:4, student:{name: 'Zezefredo', subject: 0, paymentDay: '25', startDate: '06-01-2022', frequency: 0, time: '13:00', studentIcon: 1,}},
-        {id:5, student:{name: 'Jeremilda', subject: 1, paymentDay: '30', startDate: '05-09-2022', frequency: 1, time: '14:00', studentIcon: 0,}},
-        {id:6, student:{name: 'Palpatone', subject: 0, paymentDay: '15', startDate: '03-15-2021', frequency: 0, time: '15:00', studentIcon: 1,}},
-        {id:7, student:{name: 'Marenilda', subject: 0, paymentDay: '20', startDate: '02-27-2020', frequency: 1, time: '16:00', studentIcon: 0,}},
+    const students = [
+        {id:1, student:{name: 'Raquel', subject: 1, paymentDay: 10, startDate: '2022-09-21T01:03:09.238Z', frequency: 0, time:'2022-09-12T18:13:21.767Z', gender: 0, email: "raquel@gmail.com", phone: '11 978610746'},},
+        {id:2, student:{name: 'Gabriel', subject: 1, paymentDay: 15, startDate: '2022-09-21T01:03:09.238Z', frequency: 1, time:'2022-09-12T18:13:21.767Z', gender: 0, email: "gabriel@gmail.com", phone: '11 978610746'},},
+        {id:3, student:{name: 'Thamires', subject: 0, paymentDay: 25, startDate: '2022-09-21T01:03:09.238Z', frequency: 0, time:'2022-09-12T18:13:21.767Z', gender: 0, email: "thamires@gmail.com", phone: '11 978610746'},},
+        {id:4, student:{name: 'Zezefredo', subject: 0, paymentDay: 25, startDate: '2022-09-21T01:03:09.238Z', frequency: 0, time:'2022-09-12T18:13:21.767Z', gender: 1, email: "zezefredo@gmail.com", phone: '11 978610746'},},
+        {id:5, student:{name: 'Jeremilda', subject: 1, paymentDay: 30, startDate: '2022-09-21T01:03:09.238Z', frequency: 1, time:'2022-09-12T18:13:21.767Z', gender: 0, email: "jeremilda@gmail.com", phone: '11 978610746'},},
+        {id:6, student:{name: 'Palpatone', subject: 0, paymentDay: 15, startDate: '2022-09-21T01:03:09.238Z', frequency: 0, time:'2022-09-12T18:13:21.767Z', gender: 1, email: "papatone@gmail.com", phone: '11 978610746'},},
+        {id:7, student:{name: 'Marenilda', subject: 0, paymentDay: 20, startDate: '2022-09-21T01:03:09.238Z', frequency: 1, time:'2022-09-12T18:13:21.767Z', gender: 0, email: "marenilda@gmail.com", phone: '11 978610746'},},
+        {id:8, student:{name: 'Jeremilda', subject: 1, paymentDay: 30, startDate: '2022-09-21T01:03:09.238Z', frequency: 1, time:'2022-09-12T18:13:21.767Z', gender: 0, email: "jeremilda@gmail.com", phone: '11 978610746'},},
+        {id:9, student:{name: 'Palpatone', subject: 0, paymentDay: 15, startDate: '2022-09-21T01:03:09.238Z', frequency: 0, time:'2022-09-12T18:13:21.767Z', gender: 1, email: "papatone@gmail.com", phone: '11 978610746'},},
+        {id:10, student:{name: 'Marenilda', subject: 0, paymentDay: 20, startDate: '2022-09-21T01:03:09.238Z', frequency: 1, time:'2022-09-12T18:13:21.767Z', gender: 0, email: "marenilda@gmail.com", phone: '11 978610746'},}
     ]
 
     const [studentsList, setStudentsList] = useState(students);
